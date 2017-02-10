@@ -4,10 +4,10 @@ import { Nav, NavItem } from 'react-bootstrap'
 const Navbar = ({activeTab, onSwitchTab}) => (
   <Nav bsStyle="tabs"
      activeKey={activeTab}
-      onSelect={key => {
-        onSwitchTab(key)
+      onSelect={tab => {
+        onSwitchTab(tab)
       }}>
-    <NavItem eventKey={1}>Java</NavItem>
+    <NavItem eventKey={0}>Java</NavItem>
   </Nav>
 )
 
