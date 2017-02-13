@@ -1,8 +1,7 @@
 import React from 'react'
 import axios from 'axios'
 import Navbar from '../components/Navbar'
-import CodeChunk from '../components/CodeChunk'
-import getColor from '../util/Highlighting'
+import chunk from '../util/Chunker'
 
 export default class CodeContainer extends React.Component {
   constructor() {
@@ -24,11 +23,10 @@ export default class CodeContainer extends React.Component {
   }
 
   loadCode() {
-    axios.get(`${process.env.PUBLIC_URL}/codes/HelloWorld.java`)
+    axios.get(`${process.env.PUBLIC_URL}/codes/HelloWorld.smd`)
       .then(res => {
         const codes = this.state.codes.slice()
-        //console.log(chunk(res.data))
-        codes.push(res.data);
+        codes.push(chunk(res.data, this.loadConcept));
         this.setState({codes: codes});
       })
       .catch(err => {
@@ -69,14 +67,7 @@ export default class CodeContainer extends React.Component {
             onSwitchTab={tab => this.setState({tab: tab})} />
         </div>
         <pre>
-          {/* {this.state.codes[this.state.tab]} */}
-          <CodeChunk
-            concept="method-dec"
-            lang="java"
-            color={getColor()}
-            onMouseEnter={(lang, concept) => this.loadConcept(lang, concept)}>
-              public static void main(String[] args)
-          </CodeChunk>
+          {this.state.codes[this.state.tab]}
         </pre>
       </div>
     )
@@ -85,39 +76,4 @@ export default class CodeContainer extends React.Component {
 
 function genCacheKey(lang, concept) {
   return lang + "$" + concept
-}
-
-
-
-
-
-
-
-
-
-
-
-
-//Clean this up soonish
-
-function chunk(code){
-  let chunks = []
-  let openpos = code.indexOf("<!");
-  while (openpos > 0) {
-    let endTagPos = code.indexOf(">")
-    let propString = code.substring(openpos + 2, endTagPos)
-    let props = propString.split(" ")
-    let keyVals = props.map(getKeyVal)
-    let closePos = code.indexOf("<!/>")
-    let highlightedCode = code.substring(endTagPos + 1, closePos)
-    chunks.push(<div>{highlightedCode}</div>)
-    code = code.substring(closePos + 3)
-    openpos = code.indexOf("<!");
-  }
-  return chunks
-}
-
-function getKeyVal(prop) {
-  let pos = prop.indexOf('=');
-  return [prop.substring(0, pos), prop.substring(pos+1)]
 }

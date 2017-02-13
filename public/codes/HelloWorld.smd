@@ -1,0 +1,10 @@
+package codes;
+
+public class HelloWorld {
+  <!concept=method-dec lang=java>public static void main(String[] args)<!/>{
+    <!concept=print lang=java>System.out.println("Hello World!");<!/>
+    <!concept=commenting lang=java>// This is a basic program for Java<!/>
+    <!concept=for-loop lang=java>for(int i = 0; i < 100; i++){
+    } <!/>
+  }
+}
