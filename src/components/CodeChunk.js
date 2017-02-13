@@ -7,7 +7,7 @@ const CodeChunk = ({concept, lang, color, children, onMouseEnter}) => (
     >{children}</span>
 )
 
-CodeChunk.PropTypes = {
+CodeChunk.propTypes = {
   color: React.PropTypes.string,
   concept: React.PropTypes.string,
   lang: React.PropTypes.string,
@@ -15,4 +15,4 @@ CodeChunk.PropTypes = {
   onMouseEnter: React.PropTypes.func,
 }
 
-export default CodeChunk
+export default CodeChunk;
