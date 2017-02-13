@@ -1,0 +1,9 @@
+exports[`<CodeChunk /> renders correctly 1`] = `
+<span
+  onMouseEnter={[Function]}
+  style={
+    Object {
+      "backgroundColor": "#FFFFFF",
+    }
+  } />
+`;
