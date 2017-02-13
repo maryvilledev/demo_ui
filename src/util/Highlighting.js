@@ -15,7 +15,7 @@ let unusedColors = defaultColors;
 export default function getColor() {
   if (unusedColors.length > 0) {
     let color = unusedColors[Math.floor(Math.random() * unusedColors.length)];
-    unusedColors = unusedColors.filter(val => val != color); //Remove the color
+    unusedColors = unusedColors.filter(val => val !== color); //Remove the color
     return color;
   } else {
     //Out of colors, start repeating
