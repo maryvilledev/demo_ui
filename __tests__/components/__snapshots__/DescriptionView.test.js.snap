@@ -1,0 +1,13 @@
+exports[`<DescriptionView /> renders correctly 1`] = `
+<div>
+  <h1>
+    on-the-cob
+  </h1>
+  <p>
+    The best kind of corn.
+  </p>
+  <pre>
+    shuck+boil
+  </pre>
+</div>
+`;

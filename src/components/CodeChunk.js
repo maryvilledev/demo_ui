@@ -11,7 +11,7 @@ CodeChunk.propTypes = {
   color: React.PropTypes.string,
   concept: React.PropTypes.string,
   lang: React.PropTypes.string,
-  children: React.PropTypes.element,
+  children: React.PropTypes.any,
   onMouseEnter: React.PropTypes.func,
 }
 
