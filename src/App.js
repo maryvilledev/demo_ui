@@ -4,7 +4,7 @@ import CodeContainer from './containers/CodeContainer';
 class App extends Component {
   render() {
     return (
-      <CodeContainer />
+      <CodeContainer onMouseEnter={description => console.log(description)}/>
     );
   }
 }
