@@ -1,0 +1,12 @@
+{
+    "code": "import sys",
+    "ast": [
+	{
+	    "concept": "import",
+	    "lang": "python",
+	    "begin": 0,
+	    "end": 10,
+	    "children": []
+	}
+    ]	       
+}
