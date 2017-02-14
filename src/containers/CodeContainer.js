@@ -8,30 +8,44 @@ export default class CodeContainer extends React.Component {
     super();
 
     this.state = {
+      files: [],
       codes: [],
       cache: [],
-      tab: 0
+      tabs:  [],
+      tab: 0,
     }
 
+    this.loadFiles = this.loadFiles.bind(this)
     this.loadCode = this.loadCode.bind(this)
     this.loadConcept = this.loadConcept.bind(this)
-    //this.chunk = this.chunk.bind(this)
   }
 
   componentDidMount() {
-    this.loadCode()
+    this.loadFiles().then(() => this.loadCode())
+  }
+
+  loadFiles() {
+    return axios.get(`${process.env.PUBLIC_URL}/codes`)
+      .then(res => {
+        this.setState({files: res.data.slice()})
+      })
+      .catch(err => console.error(err))
   }
 
   loadCode() {
-    axios.get(`${process.env.PUBLIC_URL}/codes/HelloWorld.smd`)
-      .then(res => {
-        const codes = this.state.codes.slice()
-        codes.push(chunk(res.data, this.loadConcept));
-        this.setState({codes: codes});
-      })
-      .catch(err => {
-        console.error(err)
-      });
+    for (let file of this.state.files) {
+      axios.get(`${process.env.PUBLIC_URL}/codes/${file}`)
+        .then(res => {
+          const codes = this.state.codes.slice();
+          const tabs = this.state.tabs.slice();
+          codes.push(chunk(res.data, this.loadConcept));
+          tabs.push(file.substr(0, file.indexOf('.')))
+          this.setState({codes: codes, tabs: tabs});
+        })
+        .catch(err => {
+          console.error(err)
+        });
+    }
   }
 
   loadConcept(lang, concept) {
@@ -63,6 +77,7 @@ export default class CodeContainer extends React.Component {
       <div>
         <div>
           <Navbar
+            tabs={this.state.tabs}
             activeTab={this.state.tab}
             onSwitchTab={tab => this.setState({tab: tab})} />
         </div>
