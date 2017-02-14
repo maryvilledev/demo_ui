@@ -1,0 +1,20 @@
+<!concept=import lang=python>import sys<!/>
+
+<!concept=functions lang=python>def fib(depth):
+    <!concept=first-class lang=python>def fib_gen():
+        <!concept=variable-dec lang=python>a, b = 0, 1<!/>
+        <!concept=for-loop lang=python>for _ in xrange(depth):
+            <!concept=variable-dec lang=python>val = a<!/>
+            a, b = b, a + b
+            <!concept=generators lang=python>yield val<!/><!/><!/>
+    return fib_gen<!/>
+
+<!concept=if lang=python>if __name__ == '__main__':
+    <!concept=if lang=python>if len(sys.argv) != 2:
+       <!concept=print lang=python>print "Usage %s fib_depth" % sys.argv[0]<!/>
+    else:
+        <!concept=variable-dec lang=python>depth = int(sys.argv[1])<!/>
+       <!concept=variable-dec lang=python>gen = fib(depth)<!/>
+        <!concept=for-loop>for num in gen():
+            <!concept=print lang=python>print "Next Fibonacci Number: %d" % num<!/><!/><!/><!/>
+
