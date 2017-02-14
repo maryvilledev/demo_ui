@@ -38,7 +38,8 @@ export default class CodeContainer extends React.Component {
         .then(res => {
           const codes = this.state.codes.slice();
           const tabs = this.state.tabs.slice();
-          codes.push(chunk(res.data, this.loadConcept));
+          const resObj = res.data;
+          codes.push(chunk(resObj.code, resObj.ast, this.loadConcept));
           tabs.push(file.substr(0, file.indexOf('.')))
           this.setState({codes: codes, tabs: tabs});
         })
