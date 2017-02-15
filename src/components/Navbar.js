@@ -7,7 +7,10 @@ const Navbar = ({tabs, activeTab, onSwitchTab}) => (
       onSelect={tab => {
         onSwitchTab(tab)
       }}>
-    {tabs.map((tab, index) => <NavItem eventKey={index}>{tab}</NavItem>)}
+    {tabs.map((tab, index) => 
+    <NavItem key={index} eventKey={index}>
+      {tab}
+    </NavItem>)}
   </Nav>
 )
 
