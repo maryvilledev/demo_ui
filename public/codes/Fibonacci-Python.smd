@@ -15,5 +15,5 @@
     else:
         <!concept=variable-dec lang=python>depth = int(sys.argv[1])<!/>
         <!concept=variable-dec lang=python>gen = fib(depth)<!/>
-        <!concept=for-loop>for num in gen():
+        <!concept=for-loop lang=python>for num in gen():
             <!concept=print lang=python>print "Next Fibonacci Number: %d" % num<!/><!/><!/><!/>

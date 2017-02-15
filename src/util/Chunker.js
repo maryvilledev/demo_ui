@@ -16,7 +16,7 @@ function chunkInner(code, onMouseEnter) {
   while(startTag) {
     //Chop off all before it, so as long as it has length
     if(startTag.index > 0) {
-      chunks.push(<span>{code.substr(0, startTag.index)}</span>);
+      chunks.push(<span key={chunks.length}>{code.substr(0, startTag.index)}</span>);
       code = code.substr(startTag.index);
     }
 
@@ -28,6 +28,7 @@ function chunkInner(code, onMouseEnter) {
     const {concept, lang} = getParams(startTag[1])
     const chunk = (
       <CodeChunk
+        key={chunks.length}
         concept={concept}
         lang={lang}
         color={getColor()}
@@ -43,7 +44,7 @@ function chunkInner(code, onMouseEnter) {
   }
   //If there is anything left, wrap it and add it
   if (code.length > 0) {
-    chunks.push(<span>{code}</span>)
+    chunks.push(<span key={chunks.length}>{code}</span>)
   }
   return chunks;
 }

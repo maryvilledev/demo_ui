@@ -49,7 +49,7 @@ export default class CodeContainer extends React.Component {
   }
 
   loadConcept(lang, concept) {
-    let cache = this.state.cache.slice();
+    let cache = this.state.cache;
     let description = cache[genCacheKey(lang, concept)]
     if (description){
       //It exists in cache, return it
@@ -81,7 +81,10 @@ export default class CodeContainer extends React.Component {
             activeTab={this.state.tab}
             onSwitchTab={tab => this.setState({tab: tab})} />
         </div>
-        <pre>
+        <pre style={{ 
+          'lineHeight': '142%',
+          'fontSize': '110%'
+           }}>
           {this.state.codes[this.state.tab]}
         </pre>
       </div>
