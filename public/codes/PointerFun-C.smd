@@ -1,0 +1,15 @@
+<!concept=include lang=c>#include <stdio.h><!/>
+
+<!concept=function-dec lang=c>void inc(<!concept=pointers lang=c>int*<!/>);<!/>
+
+int main() {
+  <!concept=local-variables lang=c>int x = 0;<!/>
+  <!concept=print lang=c>printf("Before: x=%d\n", x);<!/>
+  inc(<!concept=pointers lang=c>&x<!/>);
+  <!concept=print lang=c>printf("After:  x=%d\n", x);<!/>
+}
+
+<!concept=function-dec lang=c>void inc(<!concept=pointers lang=c>int* x<!/>)<!/>
+{
+  <!concept=pointers lang=c>*x<!/> = <!concept=pointers lang=c>*x<!/> + 1;
+}
