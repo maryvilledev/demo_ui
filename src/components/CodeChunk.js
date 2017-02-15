@@ -7,14 +7,7 @@ const CodeChunk = ({concept, lang, color, children, onMouseEnter}) => {
   }  
 
   return (
-    <span
-      style={style}
-      onMouseEnter={() => {
-          onMouseEnter(lang, concept);
-          style.fontWeight = 'bold';
-        }
-      }
-      >{children}</span>
+    <span style={style} onMouseEnter={() => onMouseEnter(lang, concept) } >{children}</span>
   );
 }
 /*

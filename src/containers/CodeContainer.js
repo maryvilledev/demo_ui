@@ -82,8 +82,8 @@ export default class CodeContainer extends React.Component {
             onSwitchTab={tab => this.setState({tab: tab})} />
         </div>
         <pre style={{ 
-          'lineHeight': '143%',
-          'fontSize': '120%'
+          'lineHeight': '142%',
+          'fontSize': '110%'
            }}>
           {this.state.codes[this.state.tab]}
         </pre>
