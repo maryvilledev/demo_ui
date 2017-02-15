@@ -17,4 +17,3 @@
        <!concept=variable-dec lang=python>gen = fib(depth)<!/>
         <!concept=for-loop>for num in gen():
             <!concept=print lang=python>print "Next Fibonacci Number: %d" % num<!/><!/><!/><!/>
-
