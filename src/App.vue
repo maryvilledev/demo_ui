@@ -1,10 +1,10 @@
 <template>
-  <div id="app" class="container-fluid">
-    <div class="row">
+  <div id="app" class="container-fluid tall">
+    <div class="row tall">
       <div class="col-sm-2">
         <filter-box :filters="filters" @toggle="toggleFilter"></filter-box>
       </div>
-      <div class="col-sm-8">
+      <div class="col-sm-8 tall">
         <code-area></code-area>
       </div>
       <div class="col-sm-2"></div>
@@ -15,6 +15,7 @@
 <script>
 import CodeArea from './components/CodeArea'
 import FilterBox from './components/FilterBox'
+import DescArea from './components/DescArea'
 
 export default {
   name: 'app',
@@ -33,7 +34,19 @@ export default {
     }
   },
   components: {
-    CodeArea, FilterBox
+    CodeArea, FilterBox, DescArea
   }
 }
 </script>
+
+<style>
+html, body {
+  height: 100%;
+}
+#app {
+  height: 100%;
+}
+.tall {
+  height: 100%;
+}
+</style>
