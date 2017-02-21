@@ -2,7 +2,7 @@
   <div id="app" class="container-fluid">
     <div class="row">
       <div class="col-sm-2">
-        <filter-box :filters="filters"></filter-box>
+        <filter-box :filters="filters" @toggle="toggleFilter"></filter-box>
       </div>
       <div class="col-sm-8">
         <code-area></code-area>
@@ -21,6 +21,15 @@ export default {
   data() {
     return{
       filters: [{text: 'for-in', value: false}, {text: 'for-each', value: true}]
+    }
+  },
+  methods: {
+    toggleFilter: function (key) {
+      if(this.filters[key].value) {
+        this.filters[key].value = false;
+      } else {
+        this.filters[key].value = true;
+      }
     }
   },
   components: {

@@ -1,8 +1,8 @@
 <template>
   <div>
     <ul class="filter-list">
-      <li v-for="filter in filters">
-        <input type="checkbox" @change="onChange($event, filter.text)" :checked="filter.value"/>
+      <li v-for="(filter, key) in filters">
+        <input type="checkbox" @change="onChange(key)" :checked="filter.value"/>
         {{filter.text}}
       </li>
     </ul>
@@ -14,11 +14,11 @@
 export default {
   name: 'filter-box',
   props: {
-    filters: []
+    filters: Array
   },
   methods: {
-    onChange: function(ev, text) {
-      this.$emit("toggleFilter", text)
+    onChange: function(key) {
+      this.$emit("toggle", key)
     }
   }
 }
