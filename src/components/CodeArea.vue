@@ -6,7 +6,6 @@
 </template>
 
 <script>
-
 export default {
   name: 'codeArea',
   data() {
@@ -20,7 +19,6 @@ export default {
     }
   },
 }
-
 </script>
 
 <style scoped>
