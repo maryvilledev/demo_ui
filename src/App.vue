@@ -1,6 +1,14 @@
 <template>
   <div id="app">
-    <codeArea></codeArea>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-2"></div>
+        <div class="col-sm-8">
+          <codeArea></codeArea>
+        </div>
+        <div class="col-sm-2"></div>
+      </div>
+    </div>
   </div>
 </template>
 

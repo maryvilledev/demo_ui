@@ -1,7 +1,7 @@
 <template>
-  <div class="codeArea">
+  <div class="code-area">
      <textarea v-model="code" class="form-control code-form"></textarea>
-     <button @click="passCode">Splain my Code!</button>
+     <button @click="passCode" class="btn btn-primary">Splain my Code!</button>
   </div>
 </template>
 
@@ -26,5 +26,10 @@ export default {
 <style scoped>
   .code-form {
     font-family: monospace;
+    resize: none;
+    padding-bottom: 60%;
+  }
+  .code-area{
+    text-align: center;
   }
 </style>
