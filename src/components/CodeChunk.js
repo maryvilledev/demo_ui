@@ -4,7 +4,7 @@ const CodeChunk = ({concept, lang, color, children, onMouseEnter}) => {
   const style = {
     backgroundColor: color,
     padding: '2px',
-  }
+  }  
 
   return (
     <span style={style} onMouseEnter={() => onMouseEnter(lang, concept) } >{children}</span>

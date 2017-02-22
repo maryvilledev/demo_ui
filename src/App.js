@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import {Grid, Row, Col} from 'react-bootstrap'
 import CodeContainer from './containers/CodeContainer'
-import CodePopover from './components/CodePopover'
+import DescriptionView from './components/DescriptionView'
 
 import './App.css'
 
@@ -12,6 +12,7 @@ class App extends Component {
     this.state = {
       description: null,
     }
+
   }
 
   render() {
@@ -23,7 +24,7 @@ class App extends Component {
               onMouseEnter={description => this.setState({description: description})}/>
           </Col>
           <Col md={6} className="description">
-            <CodePopover
+            <DescriptionView
               active={(this.state.description) ? true : false}
               description={this.state.description}
             />
