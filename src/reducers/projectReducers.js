@@ -1,6 +1,6 @@
 const defaultState = {
   free: [],
-  projects: []
+  projects: {}
 }
 
 const deepCopy = (array) => {

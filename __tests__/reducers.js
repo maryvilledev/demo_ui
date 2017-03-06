@@ -7,7 +7,7 @@ describe('reducers', () => {
     ).toEqual({
       projectState: {
         free: [],
-        projects: []
+        projects: {}
       }
     })
   })
@@ -25,7 +25,7 @@ describe('reducers', () => {
     it('should handle CHOOSE_TEAM_MEMBER', () => {
       const teamMemberName = 'Frank'
       const projectName = 'Airplane Void'
-      let projects = []
+      let projects = {}
       projects[projectName] = []
       const nextState = reducers({
         projectState: {
@@ -51,7 +51,7 @@ describe('reducers', () => {
     it('should handle RESTORE_STATE', () => {
       const savedState = {
         free: ['Frank'],
-        projects: ['Flood the School' : ['Donnie']]
+        projects: {'Flood the School' : ['Donnie']}
       }
       expect(
         reducers(undefined, {
