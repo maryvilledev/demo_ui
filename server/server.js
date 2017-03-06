@@ -16,14 +16,14 @@ app.use(bodyParser.urlencoded({
 
 app.use(express.static(path.resolve(__dirname, "..", 'build')));
 
-app.post('/api/snippets/', function(req, res) {
+app.post('/api/states/', function(req, res) {
   var id = uuid();
   var json = req.body.json;
   redis.set(id, json);
   res.json({id: id})
 })
 
-app.get('/api/snippets/:id', function(req, res) {
+app.get('/api/states/:id', function(req, res) {
   var id = req.params.id
   redis.get(id)
     .then(function(json) {
