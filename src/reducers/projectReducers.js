@@ -4,7 +4,7 @@ const defaultState = {
 }
 
 const deepCopy = (array) => {
-  let newArray = []
+  let newArray = {}
   for (const key in array) {
     newArray[key] = array[key]
   }

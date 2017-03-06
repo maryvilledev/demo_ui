@@ -30,7 +30,7 @@ class StateManager extends React.Component {
   }
   handleSaveState() {
     const { projectState } = this.props
-    const stateString = JSON.stringify(projectState);
+    const stateString = JSON.stringify(projectState)
     axios.post('/api/states/', { json: stateString })
       .then(res => {
         const id = res.data.id;
