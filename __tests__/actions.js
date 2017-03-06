@@ -18,4 +18,12 @@ describe('actions', () => {
     }
     expect(actions.chooseTeamMember(teamMemberName, projectName)).toEqual(expected)
   })
+  it('creates an action to add a project', () => {
+    const projectName = 'Flood the school'
+    const expected = {
+      type: "ADD_PROJECT",
+      payload: projectName
+    }
+    expect(actions.addProject(projectName)).toEqual(expected)
+  })
 })

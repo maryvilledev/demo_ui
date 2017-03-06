@@ -3,6 +3,14 @@ const defaultState = {
   projects: []
 }
 
+const deepCopy = (array) => {
+  let newArray = []
+  for (const key in array) {
+    newArray[key] = array[key]
+  }
+  return newArray
+}
+
 const projectState = (state=defaultState, action) => {
   switch(action.type){
     case "ADD_TEAM_MEMBER": {
@@ -16,26 +24,23 @@ const projectState = (state=defaultState, action) => {
       const { teamMemberName, projectName } = action.payload;
       const free = state.free.slice(); //For immutibility
       const index = free.findIndex((teamMember) => teamMember === teamMemberName)
-      const projects = state.projects
+      const projects = deepCopy(state.projects)
       if (index < 0 || projects[projectName] === undefined){
         break //Early return if not found
       }
       free.splice(index, 1) //Deletes the element from the array
       projects[projectName].push(teamMemberName);
       state = {...state, free, projects}
-      // if (index < 0) break //Early return if not found
-      // free.splice(index, 1) //Deletes the element from the array
-      // let turn = state.turn
-      // if (turn === 'red') {
-      //   const red = state.red.slice() //For immutibility
-      //   red.push(teamMemberName)
-      //   state = {...state, free, red, turn: 'blue'}
-      // } else if ( turn === 'blue') {
-      //   const blue = state.blue.slice() //For immutibility
-      //   blue.push(teamMemberName)
-      //   state = {...state, free, blue, turn: 'red'}
-      // }
       break
+    }
+    case "ADD_PROJECT": {
+      const projectName = action.payload
+      const projects = deepCopy(state.projects)
+      if (projects[projectName] !== undefined) {
+        break //Early return if project already exists
+      }
+      projects[projectName] = []
+      state = {...state, projects}
     }
     default:
       //NOP

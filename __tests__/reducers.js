@@ -39,5 +39,14 @@ describe('reducers', () => {
       expect(nextState.free).toEqual([])
       expect(nextState.projects[projectName]).toEqual([teamMemberName])
     })
+    it('should handle ADD_PROJECT', () => {
+      const projectName = "Flood the school"
+      expect(
+        reducers(undefined, {
+          type: 'ADD_PROJECT',
+          payload: projectName
+        }).projectState.projects[projectName]
+      ).toEqual([])
+    })
   })
 })
