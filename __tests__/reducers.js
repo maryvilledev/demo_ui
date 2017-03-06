@@ -48,5 +48,17 @@ describe('reducers', () => {
         }).projectState.projects[projectName]
       ).toEqual([])
     })
+    it('should handle RESTORE_STATE', () => {
+      const savedState = {
+        free: ['Frank'],
+        projects: ['Flood the School' : ['Donnie']]
+      }
+      expect(
+        reducers(undefined, {
+          type: 'RESTORE_STATE',
+          payload: savedState
+        }).projectState
+      ).toEqual(savedState)
+    })
   })
 })

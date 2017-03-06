@@ -43,6 +43,11 @@ const projectState = (state=defaultState, action) => {
       state = {...state, projects}
       break
     }
+    case "RESTORE_STATE": {
+      const { free, projects } = action.payload;
+      state = { free, projects }
+      break
+    }
     default:
       //NOP
       break;
