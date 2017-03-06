@@ -12,3 +12,8 @@ export const addProject = (projectName) => ({
   type: "ADD_PROJECT",
   payload: projectName
 })
+
+export const restoreState = (savedState) => ({
+  type: "RESTORE_STATE",
+  payload: savedState
+})

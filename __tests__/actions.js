@@ -26,4 +26,15 @@ describe('actions', () => {
     }
     expect(actions.addProject(projectName)).toEqual(expected)
   })
+  it('creates an action that restores state', () => {
+    const savedState = {
+      free: ['Frank'],
+      projects: ['Flood the School' : ['Donnie']]
+    }
+    const expected = {
+      type: "RESTORE_STATE",
+      payload: savedState
+    }
+    expect(actions.restoreState(savedState)).toEqual(expected)
+  })
 })
