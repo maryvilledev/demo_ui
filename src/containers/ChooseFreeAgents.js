@@ -2,33 +2,58 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { chooseTeamMember } from '../actions'
 import FreeAgentList from '../components/FreeAgentList'
+import ProjectPicker from '../components/ProjectPicker'
+
+const getProjectNames = (projects) => {
+  let names = []
+  for (const key in projects) {
+    names.push(key)
+  }
+  return names
+}
 
 class ChooseFreeAgents extends React.Component {
   constructor() {
     super()
+    this.state = {
+      selectedProject: null
+    }
     this.handleFreeAgentSelected = this.handleFreeAgentSelected.bind(this)
+    this.handleProjectSelected = this.handleProjectSelected.bind(this)
   }
 
   handleFreeAgentSelected(teamMemberName) {
     const { dispatch } = this.props
-    dispatch(chooseTeamMember(teamMemberName))
+    const { selectedProject } = this.state
+    if (selectedProject === null) return;
+    dispatch(chooseTeamMember(teamMemberName, selectedProject))
+  }
+  handleProjectSelected(projectName) {
+    this.setState({selectedProject: projectName})
   }
 
   render() {
-    const { turn, freeAgents } = this.props
+    const { freeAgents, projects } = this.props
+    const { selectedProject } = this.state
     return (
-      <FreeAgentList
-        onSelectFreeAgent={this.handleFreeAgentSelected}
-        turn={turn}
-        freeAgents={freeAgents}
-      />
+      <div>
+        <ProjectPicker
+          projects={projects}
+          onChangeSelected={this.handleProjectSelected}
+          selected={selectedProject}
+        />
+        <FreeAgentList
+          onSelectFreeAgent={this.handleFreeAgentSelected}
+          freeAgents={freeAgents}
+        />
+      </div>
     )
   }
 }
 
 const mapStateToProps = (state) => ({
-  turn: state.teamMembers.turn,
-  freeAgents: state.teamMembers.free
+  freeAgents: state.projectState.free,
+  projects: getProjectNames(state.projectState.projects)
 })
 
 export default connect(mapStateToProps)(ChooseFreeAgents)

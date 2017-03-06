@@ -2,21 +2,27 @@ import React from 'react'
 import { connect } from 'react-redux'
 import TeamDisplay from '../components/TeamDisplay'
 
+const mapProjectsToDisplays = (projects) => {
+  let projectArr = []
+  for (const key in projects) {
+    projectArr.push(<TeamDisplay name={key} teamMembers={projects[key]} />)
+  }
+  return projectArr
+}
+
 class DisplayTeams extends React.Component {
   render() {
-    const {red, blue} = this.props
+    const {projects} = this.props
     return (
       <div>
-        <TeamDisplay name='red' teamMembers={red}/>
-        <TeamDisplay name='blue' teamMembers={blue}/>
+        {mapProjectsToDisplays(projects)}
       </div>
     )
   }
 }
 
 const mapStateToProps = (state) => ({
-  red: state.teamMembers.red,
-  blue: state.teamMembers.blue
+  projects: state.projectState.projects
 })
 
 export default connect(mapStateToProps)(DisplayTeams)

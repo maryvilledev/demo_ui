@@ -41,6 +41,7 @@ const projectState = (state=defaultState, action) => {
       }
       projects[projectName] = []
       state = {...state, projects}
+      break
     }
     default:
       //NOP

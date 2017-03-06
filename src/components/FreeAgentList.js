@@ -25,8 +25,7 @@ class FreeAgentList extends React.Component {
   }
 
   render() {
-    const { turn, freeAgents } = this.props
-    const teamName = (turn === 'red' ? 'Red' : 'Blue')
+    const { freeAgents } = this.props
     const agentListItems = freeAgents.map((name, num) => (
       <li
         key={num}
@@ -39,7 +38,6 @@ class FreeAgentList extends React.Component {
     return (
       <div>
         <h2>Free Team Members:</h2>
-        <h4>{`${teamName}'s pick`}</h4>
         <Panel>
           <ul style={style.list}>
             {agentListItems}

@@ -1,24 +1,24 @@
 import React from 'react'
 import { connect }  from 'react-redux'
-import { addTeamMember } from '../actions'
+import { addProject } from '../actions'
 import AddForm from '../components/AddForm'
 
-class AddTeamMember extends React.Component {
+class AddProject extends React.Component {
   constructor() {
     super();
     this.onSubmit = this.onSubmit.bind(this);
   }
 
-  onSubmit(teamMemberName) {
+  onSubmit(projectName) {
     const { dispatch } = this.props
-    dispatch(addTeamMember(teamMemberName))
+    dispatch(addProject(projectName))
   }
 
   render() {
     return (
-      <AddForm onSubmit={this.onSubmit}>Team Member</AddForm>
+      <AddForm onSubmit={this.onSubmit}>Project</AddForm>
     )
   }
 }
 
-export default connect()(AddTeamMember);
+export default connect()(AddProject);

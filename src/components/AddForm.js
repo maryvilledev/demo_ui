@@ -1,7 +1,7 @@
 import React from 'react'
 import { FormGroup, FormControl, Button } from 'react-bootstrap'
 
-class AddTeamMemberForm extends React.Component {
+class AddForm extends React.Component {
   constructor() {
     super();
     this.state = {
@@ -33,10 +33,11 @@ class AddTeamMemberForm extends React.Component {
 
   render() {
     const { name, valid } = this.state;
+    const { children } = this.props
     const validationState = (valid ? null : 'error')
     return (
       <div>
-        <h2>Add Team Members:</h2>
+        <h2>Add {children}:</h2>
         <FormGroup validationState={validationState}>
           <FormControl
             type="text"
@@ -44,11 +45,11 @@ class AddTeamMemberForm extends React.Component {
             onChange={this.handleChange}
             placeholder="Enter name..."
           />
-          <Button onClick={this.handleSubmit} bsStyle='primary'>Add Team Member</Button>
+          <Button onClick={this.handleSubmit} bsStyle='primary'>Add {children}</Button>
         </FormGroup>
       </div>
     )
   }
 }
 
-export default AddTeamMemberForm;
+export default AddForm;
