@@ -1,11 +1,21 @@
 import React from 'react'
-import { PageHeader } from 'react-bootstrap'
+import { PageHeader, Grid, Col, Row } from 'react-bootstrap'
 import AddPlayer from './containers/AddPlayer'
+import ChooseFreeAgents from './containers/ChooseFreeAgents'
 
 const App = () => (
   <div>
     <PageHeader>Team Chooser</PageHeader>
-    <AddPlayer />
+    <Grid fluid>
+      <Row>
+        <Col sm={3}>
+          <AddPlayer />
+        </Col>
+        <Col sm={5}>
+          <ChooseFreeAgents />
+        </Col>
+      </Row>
+    </Grid>
   </div>
 )
 

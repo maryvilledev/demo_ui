@@ -36,6 +36,7 @@ class AddPlayerForm extends React.Component {
     const validationState = (valid ? null : 'error')
     return (
       <div>
+        <h2>Add Players:</h2>
         <FormGroup validationState={validationState}>
           <FormControl
             type="text"
