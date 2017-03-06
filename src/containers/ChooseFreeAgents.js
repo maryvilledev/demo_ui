@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { choosePlayer } from '../actions'
+import { chooseTeamMember } from '../actions'
 import FreeAgentList from '../components/FreeAgentList'
 
 class ChooseFreeAgents extends React.Component {
@@ -9,9 +9,9 @@ class ChooseFreeAgents extends React.Component {
     this.handleFreeAgentSelected = this.handleFreeAgentSelected.bind(this)
   }
 
-  handleFreeAgentSelected(playerName) {
+  handleFreeAgentSelected(teamMemberName) {
     const { dispatch } = this.props
-    dispatch(choosePlayer(playerName))
+    dispatch(chooseTeamMember(teamMemberName))
   }
 
   render() {
@@ -27,8 +27,8 @@ class ChooseFreeAgents extends React.Component {
 }
 
 const mapStateToProps = (state) => ({
-  turn: state.players.turn,
-  freeAgents: state.players.free
+  turn: state.teamMembers.turn,
+  freeAgents: state.teamMembers.free
 })
 
 export default connect(mapStateToProps)(ChooseFreeAgents)

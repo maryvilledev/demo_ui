@@ -12,10 +12,10 @@ const style = {
 
 class TeamDisplay extends React.Component {
   render() {
-    const { name, players } = this.props
+    const { name, teamMembers } = this.props
     const teamName = (name === 'red' ? 'Red:' : 'Blue:')
     const customListItemStyle = {...style.listItem, color: name}
-    const listItems = players.map((name, num) => (
+    const listItems = teamMembers.map((name, num) => (
       <li key={num} style={customListItemStyle}>{name}</li>
     ))
     return (

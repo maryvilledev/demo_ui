@@ -15,13 +15,13 @@ const style = {
 class FreeAgentList extends React.Component {
   constructor() {
     super();
-    this.handlePlayerSelected = this.handlePlayerSelected.bind(this)
+    this.handleTeamMemberSelected = this.handleTeamMemberSelected.bind(this)
   }
 
-  handlePlayerSelected(ev) {
+  handleTeamMemberSelected(ev) {
     const { onSelectFreeAgent } = this.props
-    const playerName = ev.target.innerText
-    onSelectFreeAgent(playerName)
+    const teamMemberName = ev.target.innerText
+    onSelectFreeAgent(teamMemberName)
   }
 
   render() {
@@ -30,7 +30,7 @@ class FreeAgentList extends React.Component {
     const agentListItems = freeAgents.map((name, num) => (
       <li
         key={num}
-        onClick={this.handlePlayerSelected}
+        onClick={this.handleTeamMemberSelected}
         style={style.listItem}
       >
         {name}
@@ -38,7 +38,7 @@ class FreeAgentList extends React.Component {
     ))
     return (
       <div>
-        <h2>Free Agents:</h2>
+        <h2>Free Team Members:</h2>
         <h4>{`${teamName}'s pick`}</h4>
         <Panel>
           <ul style={style.list}>

@@ -1,20 +1,21 @@
 import * as actions from '../src/actions'
 
 describe('actions', () => {
-  it('creates an action to add a player', () => {
-    const playerName = 'Donnie'
+  it('creates an action to add a teamMember', () => {
+    const teamMemberName = 'Donnie'
     const expected = {
-      type: "ADD_PLAYER",
-      payload: playerName
+      type: "ADD_TEAM_MEMBER",
+      payload: teamMemberName
     }
-    expect(actions.addPlayer(playerName)).toEqual(expected)
+    expect(actions.addTeamMember(teamMemberName)).toEqual(expected)
   })
-  it('creates an action to choose a player', () => {
-    const playerName = 'Frank'
+  it('creates an action to choose a teamMember', () => {
+    const teamMemberName = 'Frank'
+    const projectName = 'Airplane Void'
     const expected = {
-      type: "CHOOSE_PLAYER",
-      payload: playerName
+      type: "CHOOSE_TEAM_MEMBER",
+      payload: { teamMemberName, projectName }
     }
-    expect(actions.choosePlayer(playerName)).toEqual(expected)
+    expect(actions.chooseTeamMember(teamMemberName, projectName)).toEqual(expected)
   })
 })

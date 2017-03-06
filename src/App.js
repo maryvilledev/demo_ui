@@ -1,6 +1,6 @@
 import React from 'react'
 import { PageHeader, Grid, Col, Row } from 'react-bootstrap'
-import AddPlayer from './containers/AddPlayer'
+import AddTeamMember from './containers/AddTeamMember'
 import ChooseFreeAgents from './containers/ChooseFreeAgents'
 import DisplayTeams from './containers/DisplayTeams'
 
@@ -10,7 +10,7 @@ const App = () => (
     <Grid fluid>
       <Row>
         <Col sm={3}>
-          <AddPlayer />
+          <AddTeamMember />
         </Col>
         <Col sm={4}>
           <ChooseFreeAgents />

@@ -1,9 +1,9 @@
-export const addPlayer = (playerName) => ({
-  type: "ADD_PLAYER",
-  payload: playerName
+export const addTeamMember = (teamMemberName) => ({
+  type: "ADD_TEAM_MEMBER",
+  payload: teamMemberName
 })
 
-export const choosePlayer = (playerName) => ({
-  type: "CHOOSE_PLAYER",
-  payload: playerName
+export const chooseTeamMember = (teamMemberName, projectName) => ({
+  type: "CHOOSE_TEAM_MEMBER",
+  payload: { teamMemberName, projectName }
 })

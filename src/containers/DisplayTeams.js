@@ -7,16 +7,16 @@ class DisplayTeams extends React.Component {
     const {red, blue} = this.props
     return (
       <div>
-        <TeamDisplay name='red' players={red}/>
-        <TeamDisplay name='blue' players={blue}/>
+        <TeamDisplay name='red' teamMembers={red}/>
+        <TeamDisplay name='blue' teamMembers={blue}/>
       </div>
     )
   }
 }
 
 const mapStateToProps = (state) => ({
-  red: state.players.red,
-  blue: state.players.blue
+  red: state.teamMembers.red,
+  blue: state.teamMembers.blue
 })
 
 export default connect(mapStateToProps)(DisplayTeams)

@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux'
-import players from './playerReducers'
+import projectState from './projectReducers'
 
 const reducers = combineReducers({
-  players
+  projectState
 });
 
 export default reducers;
